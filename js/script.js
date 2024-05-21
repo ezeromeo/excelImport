@@ -1,17 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const respuesta = `<select class="form-select" aria-label="Default select example">
+                        <option selected>Si</option>
+                        <option value="No">No</option>
+                       </select>`;
+
+    const diploma = `<select class="form-select" aria-label="Default select example">
+                        <option selected>Aprovechamiento</option>
+                        <option value="No">Asistencia</option>
+                    </select>`
     const datos = [
-        { NIF: "3234242A", Nombre: "Juan", Apellido1: "García", Apellido2: "Martín", Email: "jgarcia@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Aprovechamiento", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Lucia", Apellido1: "Rodríguez", Apellido2: "Gómez", Email: "lrodriguez@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Asistencia", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Hugo", Apellido1: "González", Apellido2: "Sánchez", Email: "hgonzalez@email.es", Estado: "Inscrito", Certifica: "No", Finaliza: "Sí", Inicia: "No", Baja: "No", TipoDiploma: "Aprovechamiento", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Paula", Apellido1: "Fernández", Apellido2: "López", Email: "pfernandez@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Asistencia", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Mateo", Apellido1: "López", Apellido2: "Fernández", Email: "mlopez@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Asistencia", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Valeria", Apellido1: "Sánchez", Apellido2: "Muñoz", Email: "vsanchez@email.es", Estado: "Pendiente Validar", Certifica: "No", Finaliza: "No", Inicia: "No", Baja: "No", TipoDiploma: "Asistencia", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Pablo", Apellido1: "Pérez", Apellido2: "González", Email: "pperez@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Aprovechamiento", FechaPreinscripcion: "23/07/2023" },
-        { NIF: "3234242A", Nombre: "Ema", Apellido1: "Gómez", Apellido2: "García", Email: "egomez@email.es", Estado: "Inscrito", Certifica: "Sí", Finaliza: "Sí", Inicia: "Sí", Baja: "No", TipoDiploma: "Aprovechamiento", FechaPreinscripcion: "23/07/2023" }
+        { NIF: "3234242A", Nombre: "Juan", Apellido1: "García", Apellido2: "Martín", Email: "jgarcia@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Lucia", Apellido1: "Rodríguez", Apellido2: "Gómez", Email: "lrodriguez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Hugo", Apellido1: "González", Apellido2: "Sánchez", Email: "hgonzalez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Paula", Apellido1: "Fernández", Apellido2: "López", Email: "pfernandez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Mateo", Apellido1: "López", Apellido2: "Fernández", Email: "mlopez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Valeria", Apellido1: "Sánchez", Apellido2: "Muñoz", Email: "vsanchez@email.es", Estado: "Pendiente Validar", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Pablo", Apellido1: "Pérez", Apellido2: "González", Email: "pperez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" },
+        { NIF: "3234242A", Nombre: "Ema", Apellido1: "Gómez", Apellido2: "García", Email: "egomez@email.es", Estado: "Inscrito", Certifica: respuesta, Finaliza: respuesta, Inicia: respuesta, Baja: respuesta, TipoDiploma: diploma, FechaPreinscripcion: "23/07/2023" }
     ];
 
     const tbody = document.getElementById('tabla-alumnos').getElementsByTagName('tbody')[0];
-
     datos.forEach(alumno => {
         let fila = `<tr>
                         <td>
@@ -25,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>${alumno.Apellido1}</td>
                         <td>${alumno.Apellido2}</td>
                         <td>${alumno.Email}</td>
-                        <td class="d-flex align-items-center justify-content-center"><div class="alumnoEstado">${alumno.Estado}</div></td>
+                        <td><div class="d-flex align-items-center justify-content-center"><div class="alumnoEstado">${alumno.Estado}</div></div></td>
                         <td>${alumno.Certifica}</td>
                         <td>${alumno.Finaliza}</td>
                         <td>${alumno.Inicia}</td>
@@ -36,36 +44,63 @@ document.addEventListener('DOMContentLoaded', function() {
         tbody.innerHTML += fila;
     });
 
-    window.buscarTexto = function() {
-        const texto = document.getElementById('busqueda-texto').value.toLowerCase();
+    window.procesarEntrada = function (event) {
+        if (event.keyCode === 13) {
+            buscarTexto();
+        }
+    };
+
+    window.buscarTexto = function () {
+        const texto = document.getElementById('busqueda-texto').value;
         const filas = document.querySelectorAll("#tabla-alumnos tbody tr");
-        filas.forEach(fila => {
-            const visible = [...fila.children].some(td => td.textContent.toLowerCase().includes(texto));
-            fila.style.display = visible ? "" : "none";
+
+
+        if (texto.trim() === '') {
+            filas.forEach(fila => fila.style.display = "");
+            return;
+        }
+
+
+        const segmentos = texto.split(/\s+/).filter(segmento => segmento !== '');
+        let mapaNIFs = new Map();
+        let nifActual = null;
+
+        segmentos.forEach(segmento => {
+            if (segmento.includes('@')) {
+
+                if (mapaNIFs.has(nifActual)) {
+                    mapaNIFs.get(nifActual).push(segmento);
+                } else {
+                    mapaNIFs.set(nifActual, [segmento]);
+                }
+            } else {
+
+                nifActual = segmento;
+                if (!mapaNIFs.has(nifActual)) {
+                    mapaNIFs.set(nifActual, []);
+                }
+            }
+        });
+
+
+        const busquedas = Array.from(mapaNIFs.keys()).map(nif => {
+            const emails = mapaNIFs.get(nif).join(', ');
+            return `${nif}; ${emails}`;
+        });
+
+
+        filas.forEach(fila => fila.style.display = "none");
+        busquedas.forEach(busqueda => {
+            const [nif, emailsString] = busqueda.split(/\s*;\s*/);
+            const emails = emailsString.split(/\s*,\s*/);
+            filas.forEach(fila => {
+                const emailCelda = fila.children[5].textContent.toLowerCase();
+                const nifCelda = fila.children[1].textContent.toLowerCase();
+                if (nifCelda.includes(nif.toLowerCase()) && emails.some(email => emailCelda.includes(email.toLowerCase()))) {
+                    fila.style.display = "";
+                }
+            });
         });
     };
 
-    window.leerExcel = function(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const data = e.target.result;
-            const workbook = XLSX.read(data, {type: 'binary'});
-            const sheetName = workbook.SheetNames[0];
-            const sheet = workbook.Sheets[sheetName];
-            const emailsNIFs = XLSX.utils.sheet_to_json(sheet, {header: 1})
-                                .map(row => row[Object.keys(row)[0]]);
-            buscarPorLista(emailsNIFs);
-        };
-        reader.readAsBinaryString(file);
-    };
-    
-
-    function buscarPorLista(lista) {
-        const filas = document.querySelectorAll("#tabla-alumnos tbody tr");
-        filas.forEach(fila => {
-            const visible = [...fila.children].some(td => lista.includes(td.textContent));
-            fila.style.display = visible ? "" : "none";
-        });
-    }
 });

@@ -10,11 +10,9 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
 <body class="d-flex align-items-center justify-content-center mt-5 pt-5">
     <div class="w-75">
         <div class="buscador">
-            <input type="text" id="busqueda-texto" placeholder="Buscar en el grid...">
+            <input type="text" id="busqueda-texto" placeholder="Escriba o pegue una lista y pulse <enter>..." onfocus="this.style.width = '400px';" onblur="this.style.width = '200px';" onkeyup="procesarEntrada(event)">
             <button onclick="buscarTexto()">🔍</button>
-            <button onclick="document.getElementById('file-input').click()">📂</button>
-            <input type="file" id="file-input" accept=".xlsx" style="display: none;" onchange="leerExcel(event)">
-        </div>
+        </div>               
         <table id="tabla-alumnos" class="table table-striped">
             <thead>
                 <tr>
