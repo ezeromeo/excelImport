@@ -9,9 +9,11 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
 </head>
 <body class="d-flex align-items-center justify-content-center mt-5 pt-5">
     <div class="w-75">
-        <div class="buscador">
-            <input type="text" id="busqueda-texto" placeholder="Escriba o pegue una lista y pulse <enter>..." onfocus="this.style.width = '400px';" onblur="this.style.width = '200px';" onkeyup="procesarEntrada(event)">
-            <button onclick="buscarTexto()">🔍</button>
+        <div class="buscador d-flex align-items-center justify-content-start">
+            <textarea id="busqueda-texto" placeholder="Escriba o pegue una lista y pulse <enter>..." 
+                onfocus="this.style.width = '200px';" onblur="this.style.width = '200px';"
+                onkeyup="procesarEntrada(event)" class="form-control w-50 me-2"></textarea>
+                  <button onclick="buscarTexto()">🔍</button>
         </div>               
         <table id="tabla-alumnos" class="table table-striped">
             <thead>

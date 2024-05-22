@@ -50,57 +50,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    window.buscarTexto = function () {
+    // window.buscarTexto = function () {
+    //     const texto = document.getElementById('busqueda-texto').value;
+    //     const filas = document.querySelectorAll("#tabla-alumnos tbody tr");
+
+
+    //     if (texto.trim() === '') {
+    //         filas.forEach(fila => fila.style.display = "");
+    //         return;
+    //     }
+
+
+    //     const segmentos = texto.split(/\s+/).filter(segmento => segmento !== '');
+    //     let mapaNIFs = new Map();
+    //     let nifActual = null;
+
+    //     segmentos.forEach(segmento => {
+    //         if (segmento.includes('@')) {
+
+    //             if (mapaNIFs.has(nifActual)) {
+    //                 mapaNIFs.get(nifActual).push(segmento);
+    //             } else {
+    //                 mapaNIFs.set(nifActual, [segmento]);
+    //             }
+    //         } else {
+
+    //             nifActual = segmento;
+    //             if (!mapaNIFs.has(nifActual)) {
+    //                 mapaNIFs.set(nifActual, []);
+    //             }
+    //         }
+    //     });
+
+
+    //     const busquedas = Array.from(mapaNIFs.keys()).map(nif => {
+    //         const emails = mapaNIFs.get(nif).join(', ');
+    //         return `${nif}; ${emails}`;
+    //     });
+
+
+    //     filas.forEach(fila => fila.style.display = "none");
+    //     busquedas.forEach(busqueda => {
+    //         const [nif, emailsString] = busqueda.split(/\s*;\s*/);
+    //         const emails = emailsString.split(/\s*,\s*/);
+    //         filas.forEach(fila => {
+    //             const emailCelda = fila.children[5].textContent.toLowerCase();
+    //             const nifCelda = fila.children[1].textContent.toLowerCase();
+    //             if (nifCelda.includes(nif.toLowerCase()) && emails.some(email => emailCelda.includes(email.toLowerCase()))) {
+    //                 fila.style.display = "";
+    //             }
+    //         });
+    //     });
+    // };
+    window.buscarTexto = function() {
         const texto = document.getElementById('busqueda-texto').value;
         const filas = document.querySelectorAll("#tabla-alumnos tbody tr");
-
-
+    
         if (texto.trim() === '') {
             filas.forEach(fila => fila.style.display = "");
             return;
         }
-
-
-        const segmentos = texto.split(/\s+/).filter(segmento => segmento !== '');
-        let mapaNIFs = new Map();
-        let nifActual = null;
-
-        segmentos.forEach(segmento => {
-            if (segmento.includes('@')) {
-
-                if (mapaNIFs.has(nifActual)) {
-                    mapaNIFs.get(nifActual).push(segmento);
-                } else {
-                    mapaNIFs.set(nifActual, [segmento]);
-                }
-            } else {
-
-                nifActual = segmento;
-                if (!mapaNIFs.has(nifActual)) {
-                    mapaNIFs.set(nifActual, []);
-                }
-            }
-        });
-
-
-        const busquedas = Array.from(mapaNIFs.keys()).map(nif => {
-            const emails = mapaNIFs.get(nif).join(', ');
-            return `${nif}; ${emails}`;
-        });
-
-
-        filas.forEach(fila => fila.style.display = "none");
-        busquedas.forEach(busqueda => {
-            const [nif, emailsString] = busqueda.split(/\s*;\s*/);
-            const emails = emailsString.split(/\s*,\s*/);
-            filas.forEach(fila => {
-                const emailCelda = fila.children[5].textContent.toLowerCase();
-                const nifCelda = fila.children[1].textContent.toLowerCase();
-                if (nifCelda.includes(nif.toLowerCase()) && emails.some(email => emailCelda.includes(email.toLowerCase()))) {
-                    fila.style.display = "";
-                }
-            });
+    
+        const busquedas = texto.split(/\s+|\n/).filter(term => term !== '').map(term => term.toLowerCase());
+    
+        filas.forEach(fila => {
+            const nifCelda = fila.children[1].textContent.toLowerCase();
+            const emailCelda = fila.children[5].textContent.toLowerCase();
+            const mostrar = busquedas.some(busqueda => busqueda === nifCelda || busqueda === emailCelda);
+    
+            fila.style.display = mostrar ? "" : "none";
         });
     };
-
 });
